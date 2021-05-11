@@ -1,6 +1,7 @@
 #include "monty.h"
 /**
- *mod - computes the remainder of the division of the second topmost *element by the topmost element
+ *mod - computes the remainder of the division of the second topmost
+ *element by the topmost element
  *@stack:pointer to stack
  *@ln:line number
  *Return:void
@@ -30,4 +31,60 @@ void mod(stack_t **stack, unsigned int ln)
 	free(tmp);
 }
 /**
- *pchar - 
+ *pchar - prints the char at the top followed by a newline
+ *Description:top value is treated as ASCII of the top char
+ *@stack:pointer to stack
+ *@ln:line number
+ *Return:void
+ */
+void pchar(stack_t **stack, unsigned int ln)
+{
+	stack_t *tmp = *stack;
+
+	if (tmp == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't pchar, stack empty\n", ln);
+		/*free function*/
+		exit(EXIT_FAILURE);
+	}
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	if (tmp->n < 0 || tmp->n > 127)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't pchar, value out of range\n", ln);
+		/*free function*/
+		exit(EXIT_FAILURE);
+	}
+	printf("%c\n", tmp->n);
+}
+/**
+ *pstr - prints ascii of stack elements from top
+ *@stack:pointer to stack
+ *@ln:line number
+ * Return:void
+ */
+void pstr(stack_t **stack, unsigned int ln)
+{
+	stack_t *tmp = *stack;
+
+	if (tmp == NULL)
+	{
+		printf("\n");
+		/*free function*/
+		exit(EXIT_FAILURE);
+	}
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	while (tmp->prev != NULL)
+	{
+		if (tmp->n <= 0 || tmp->n > 127)
+		{
+			printf("\n");
+			/*free function*/
+			exit(EXIT_FAILURE);
+		}
+		printf("%c", tmp->n);
+		tmp = tmp->prev;
+	}
+	printf("\n");
+}
