@@ -65,7 +65,7 @@ void sub(stack_t **stack, unsigned int ln)
  *@ln:line number
  *Return:void
  */
-void div(stack_t **stack, unsigned int ln)
+void div_op(stack_t **stack, unsigned int ln)
 {
 	stack_t *tmp = *stack;
 	int div_n;

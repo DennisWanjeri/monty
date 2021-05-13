@@ -46,7 +46,7 @@ stack_t  *add_node_beg(stack_t **head, const int n)
 {
 	stack_t *new_node;
 
-	new_node = malloc(sizeof(struct_t));
+	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
 		dprintf(STDERR_FILENO, "Error: malloc failed\n");
