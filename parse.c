@@ -19,7 +19,7 @@ void parse(void)
 		}
 		i = 0;
 		mon.buff[strlen(mon.buff) - 1] = '\0';
-		token = strtok(mon.buff, " ");
+		token = strtok(mon.buff, " \t");
 		if (!token || token[0] == '#' || token[0] == '\0')
 		{
 			mon.line_number++;
