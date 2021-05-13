@@ -61,7 +61,7 @@ typedef struct monty
 extern monty_details mon;
 /*helper functions*/
 
-stack_t *add_node_end(stack_t **head, const int n);
+stack_t *add_dnodeint_end(stack_t **head, const int n);
 stack_t *add_node_beg(stack_t **head, const int n);
 /*free functions*/
 void freer(void);

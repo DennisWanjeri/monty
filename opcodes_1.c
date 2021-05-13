@@ -8,20 +8,20 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	int number, i = 0;
-	char *n;/*to hold the parsed number from the line*/
+	char *n = mon.args[1];
 
 	if (n == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%d: Usage: push integer\n", ln);
+		dprintf(STDERR_FILENO, "L%d: Usage: push integer\n", line_number);
 		freer();
 		exit(EXIT_FAILURE);
 	}
 	/*check if the string contains an integer*/
 	while (n[i])
 	{
-		if (((n[i] < '0' || n[i] > '9') && n[i] != '-') || n[i] == '-' && n[i + 1] == '\0')
+		if (((n[i] < '0' || n[i] > '9') && n[i] != '-') || (n[i] == '-' && n[i + 1] == '\0'))
 		{
-			dprintf(STDERR_FILENO, "L%d: Usage: push integer\n", ln);
+			dprintf(STDERR_FILENO, "L%d: Usage: push integer\n", line_number);
 			freer();
 			exit(EXIT_FAILURE);
 		}
@@ -84,7 +84,7 @@ void pop(stack_t **stack, unsigned int ln)
 
 	if (tmp == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%d: can't pop an empty stack\n");
+		dprintf(STDERR_FILENO, "L%d: can't pop an empty stack\n", ln);
 		freer();
 		exit(EXIT_FAILURE);
 	}
@@ -113,7 +113,7 @@ void swap(stack_t **stack, unsigned int ln)
 		tmp = tmp->next;
 	if (tmp->prev == NULL || tmp == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%d: can't swap, stack too short\n");
+		dprintf(STDERR_FILENO, "L%d: can't swap, stack too short\n", ln);
 		freer();
 		exit(EXIT_FAILURE);
 	}

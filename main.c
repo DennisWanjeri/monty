@@ -1,5 +1,6 @@
 #include "monty.h"
-
+/*global struct*/
+monty_details mon;
 #define AGSIZE 10
 /**
  *main - main file of the monty interpreter
@@ -33,7 +34,7 @@ int main(int argc, char *argv[])
 		freer();
 		exit(EXIT_FAILURE);
 	}
-	mon.file = fopen(av[1], "r");
+	mon.file = fopen(argv[1], "r");
 	if (!mon.file)
 	{
 		dprintf(STDERR_FILENO, "Error: malloc failed\n");

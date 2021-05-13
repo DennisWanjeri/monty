@@ -5,7 +5,7 @@
 void ops(void)
 {
 	int op_i = 0;
-	instruction_op[] = {
+	instruction_t op[] = {
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
@@ -25,7 +25,7 @@ void ops(void)
 	{
 		if (strcmp(mon.args[0], op[op_i].opcode) == 0)
 		{
-			op.[op_i].f(&mon.stack, mon.line_number);
+			op[op_i].f(&mon.stack, mon.line_number);
 			break;
 		}
 		op_i++;
@@ -33,7 +33,7 @@ void ops(void)
 		{
 			dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", mon.line_number, mon.args[0]);
 			freer();
-			wxit(EXIT_FAILURE);
+			exit(EXIT_FAILURE);
 		}
 	}
 }

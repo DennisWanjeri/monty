@@ -5,7 +5,7 @@
  *@n:integer data
  *Return:address of new node
  */
-stack_t *add_node_end(stack_t **head, const int n)
+stack_t *add_dnodeint_end(stack_t **head, const int n)
 {
 	stack_t *new_node, *temp;
 

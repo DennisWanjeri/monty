@@ -67,6 +67,7 @@ void pstr(stack_t **stack, unsigned int ln)
 {
 	stack_t *tmp = *stack;
 
+	(void)ln;
 	if (tmp == NULL)
 	{
 		printf("\n");

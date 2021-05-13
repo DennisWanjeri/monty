@@ -12,7 +12,7 @@ void add(stack_t **stack, unsigned int ln)
 
 	if (tmp == NULL || tmp->next == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%d: can't add, stack too short\n");
+		dprintf(STDERR_FILENO, "L%d: can't add, stack too short\n", ln);
 		freer();
 		exit(EXIT_FAILURE);
 	}
