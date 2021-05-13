@@ -109,14 +109,14 @@ void swap(stack_t **stack, unsigned int ln)
 	stack_t *tmp = *stack;
 	int swap_n;
 
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-	if (tmp->prev == NULL || tmp == NULL)
+	if (tmp->next == NULL || tmp == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't swap, stack too short\n", ln);
 		freer();
 		exit(EXIT_FAILURE);
 	}
+	while (tmp->next != NULL)
+		tmp = tmp->next;
 	swap_n = tmp->prev->n;
 	tmp->prev->n = tmp->n;
 	tmp->n = swap_n;
