@@ -5,7 +5,7 @@
  *@ln: line number of monty file to parse
  *Return:void
  */
-void push(stack_t **stack, unsigned int ln)
+void push(stack_t **stack, unsigned int line_number)
 {
 	int number, i = 0;
 	char *n;/*to hold the parsed number from the line*/
@@ -13,7 +13,7 @@ void push(stack_t **stack, unsigned int ln)
 	if (n == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: Usage: push integer\n", ln);
-		/*free any mem allocated function*/
+		freer();
 		exit(EXIT_FAILURE);
 	}
 	/*check if the string contains an integer*/
@@ -22,7 +22,7 @@ void push(stack_t **stack, unsigned int ln)
 		if (((n[i] < '0' || n[i] > '9') && n[i] != '-') || n[i] == '-' && n[i + 1] == '\0')
 		{
 			dprintf(STDERR_FILENO, "L%d: Usage: push integer\n", ln);
-			/*free mem allocated function*/
+			freer();
 			exit(EXIT_FAILURE);
 		}
 		i++;
@@ -65,7 +65,7 @@ void pint(stack_t **stack, unsigned int ln)
 	if (tmp == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't pint, stack empty\n", ln);
-		/*free mem function*/
+		freer();
 		exit(EXIT_FAILURE);
 	}
 	while (tmp->next != NULL)
@@ -85,7 +85,7 @@ void pop(stack_t **stack, unsigned int ln)
 	if (tmp == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't pop an empty stack\n");
-		/*free function*/
+		freer();
 		exit(EXIT_FAILURE);
 	}
 	while (tmp->next != NULL)
@@ -114,7 +114,7 @@ void swap(stack_t **stack, unsigned int ln)
 	if (tmp->prev == NULL || tmp == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't swap, stack too short\n");
-		/*free function*/
+		freer();
 		exit(EXIT_FAILURE);
 	}
 	swap_n = tmp->prev->n;

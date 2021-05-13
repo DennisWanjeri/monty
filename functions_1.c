@@ -42,9 +42,9 @@ stack_t *add_node_end(stack_t **head, const int n)
  *@n:integer data
  *Return:address of new node
  */
-struct_t *add_node_beg(struct_t **head, const int n)
+stack_t  *add_node_beg(stack_t **head, const int n)
 {
-	struct_t *new_node;
+	stack_t *new_node;
 
 	new_node = malloc(sizeof(struct_t));
 	if (new_node == NULL)
@@ -72,4 +72,27 @@ struct_t *add_node_beg(struct_t **head, const int n)
 		*head = new_node;
 	}
 	return (new_node);
+}
+/**
+ *free_dlistint - frees a doubly linked list
+ *@head:doubly linked list
+ *Return:void
+ */
+void free_dlistint(stack_t *head)
+{
+	stack_t *temp;
+
+	if (head == NULL)
+		return;
+	while (head->prev)
+	{
+		head = head->prev;
+	}
+	while (head)
+	{
+		temp = head->next;
+		free(head);
+		head = temp;
+	}
+	free(temp);
 }

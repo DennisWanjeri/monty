@@ -13,7 +13,7 @@ void add(stack_t **stack, unsigned int ln)
 	if (tmp == NULL || tmp->next == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't add, stack too short\n");
-		/*free function*/
+		freer();
 		exit(EXIT_FAILURE);
 	}
 	while (tmp->next != NULL)
@@ -49,7 +49,7 @@ void sub(stack_t **stack, unsigned int ln)
 	if (tmp == NULL || tmp->next == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't sub, stack too short\n", ln);
-		/*free function*/
+		freer();
 		exit(EXIT_FAILURE);
 	}
 	while (tmp->next != NULL)
@@ -73,7 +73,7 @@ void div(stack_t **stack, unsigned int ln)
 	if (tmp == NULL || tmp->next == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't div, stack too short\n", ln);
-		/*free function*/
+		freer();
 		exit(EXIT_FAILURE);
 	}
 	while (tmp->next != NULL)
@@ -81,7 +81,7 @@ void div(stack_t **stack, unsigned int ln)
 	if (tmp->n == 0)
 	{
 		dprintf(STDERR_FILENO, "L%d: division by zero\n", ln);
-		/*free function*/
+		freer();
 		exit(EXIT_FAILURE);
 	}
 	div_n = tmp->prev->n / tmp->n;
@@ -104,7 +104,7 @@ void mul(stack_t **stack, unsigned int ln)
 	if (tmp == NULL || tmp->next == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't mul, stack too short\n", ln);
-		/*free function*/
+		freer();
 		exit(EXIT_FAILURE);
 	}
 	while (tmp->next != NULL)
