@@ -19,7 +19,7 @@ void push(stack_t **stack, unsigned int line_number)
 	/*check if the string contains an integer*/
 	while (n[i])
 	{
-		if (((n[i] < '0' || n[i] > '9') && n[i] != '-') || (n[i] == '-' && n[i + 1] == '\0'))
+		if (is_no(n[i] == 1 && n[i] != '-') || (n[i] == '-' && n[i + 1] == '\0'))
 		{
 			dprintf(STDERR_FILENO, "L%d: Usage: push integer\n", line_number);
 			freer();

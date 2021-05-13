@@ -62,7 +62,7 @@ monty_details mon;
 /*parser*/
 void parse(void);
 /*helper functions*/
-
+int is_no(char c);
 stack_t *add_dnodeint_end(stack_t **head, const int n);
 stack_t *add_node_beg(stack_t **head, const int n);
 /*free functions*/
