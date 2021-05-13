@@ -1,6 +1,6 @@
 #include "monty.h"
 /*global struct*/
-monty_details mon;
+/*monty_details mon;*/
 #define AGSIZE 10
 /**
  *main - main file of the monty interpreter
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 		freer();
 		exit(EXIT_FAILURE);
 	}
-	/*parse function*/
+	parse();
 	freer();
-	return(EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }

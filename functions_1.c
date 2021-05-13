@@ -17,7 +17,7 @@ stack_t *add_dnodeint_end(stack_t **head, const int n)
 		exit(EXIT_FAILURE);
 	}
 	if (head == NULL)
-		return NULL;
+		return (NULL);
 	new_node->n = n;
 	new_node->next = NULL;
 
@@ -37,7 +37,7 @@ stack_t *add_dnodeint_end(stack_t **head, const int n)
 	return (new_node);
 }
 /**
- *add_node_int - adds a node at the beginning of a doubly linked list
+ *add_node_beg - adds a node at the beginning of a doubly linked list
  *@head:pointer to list
  *@n:integer data
  *Return:address of new node
@@ -53,7 +53,7 @@ stack_t  *add_node_beg(stack_t **head, const int n)
 		exit(EXIT_FAILURE);
 	}
 	if (head == NULL)
-		return NULL;
+		return (NULL);
 	new_node->n = n;
 	new_node->prev = NULL;
 

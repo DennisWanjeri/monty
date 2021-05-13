@@ -30,8 +30,7 @@ void ops(void)
 		}
 		op_i++;
 		if (op[op_i].opcode == NULL)
-		{
-			dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", mon.line_number, mon.args[0]);
+		{dprintf(2, "L%d: unknown instruction %s\n", mon.line_number, mon.args[0]);
 			freer();
 			exit(EXIT_FAILURE);
 		}

@@ -9,7 +9,7 @@ void parse(void)
 	int i = 0;
 	char *token;
 
-	for (mon.line = getline(&mon.buff, &mon.len, mon.file); mon.line != -1; )
+	while ((mon.line = getline(&mon.buff, &mon.len, mon.file)) != -1)
 	{
 		/*initialize the mon.args(2-dimensional array) to NULL*/
 		while (mon.args[i])
@@ -29,7 +29,6 @@ void parse(void)
 		{
 			mon.args[i] = token;
 			token = strtok(NULL, " ");
-			i++;
 			if (i > 2)
 				break;
 		}

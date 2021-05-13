@@ -2,7 +2,7 @@
 /**
  *push - adds values on top of the stack
  *@stack:pointer to the stack doubly linked list
- *@ln: line number of monty file to parse
+ *@line_number: line number of monty file to parse
  *Return:void
  */
 void push(stack_t **stack, unsigned int line_number)

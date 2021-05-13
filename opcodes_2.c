@@ -60,7 +60,7 @@ void sub(stack_t **stack, unsigned int ln)
 	free(tmp);
 }
 /**
- *div - divides the second top element by the top element in the stack
+ *div_op - divides the second top element by the top element in the stack
  *@stack:pointer to stack
  *@ln:line number
  *Return:void

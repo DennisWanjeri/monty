@@ -58,7 +58,9 @@ typedef struct monty
 	int line;
 	FILE *file;
 } monty_details;
-extern monty_details mon;
+monty_details mon;
+/*parser*/
+void parse(void);
 /*helper functions*/
 
 stack_t *add_dnodeint_end(stack_t **head, const int n);
