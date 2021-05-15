@@ -110,7 +110,7 @@ void swap(stack_t **stack, unsigned int ln)
 	stack_t *tmp = *stack;
 	int swap_n;
 
-	if (tmp->next == NULL || tmp == NULL)
+	if (tmp == NULL || tmp->next == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't swap, stack too short\n", ln);
 		freer();
