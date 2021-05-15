@@ -12,7 +12,7 @@ void push(stack_t **stack, unsigned int line_number)
 
 	if (n == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%d: Usage: push integer\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
 		freer();
 		exit(EXIT_FAILURE);
 	}
@@ -21,13 +21,14 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		if ((is_no(n[i]) == 0 && n[i] != '-') || (n[i] == '-' && n[i + 1] == '\0'))
 		{
-			dprintf(STDERR_FILENO, "L%d: Usage: push integer\n", line_number);
+			dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
 			freer();
 			exit(EXIT_FAILURE);
 		}
 		i++;
 	}
 	number = atoi(n);
+	mon.args[1] = NULL;
 	add_dnodeint_end(stack, number);
 }
 /**
