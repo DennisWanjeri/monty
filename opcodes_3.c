@@ -67,9 +67,12 @@ void pstr(stack_t **stack, unsigned int ln)
 {
 	stack_t *tmp = *stack;
 
-	if (tmp == NULL)
-		return;
 	(void)ln;
+	if (tmp == NULL)
+	{
+		printf("\n");
+	  	return;
+	}
 	while (tmp->next != NULL)
 		tmp = tmp->next;
 	while (tmp && tmp->n != 0 && (tmp->n > 0 && tmp->n <= 127))
