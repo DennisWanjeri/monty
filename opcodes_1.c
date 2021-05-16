@@ -29,7 +29,10 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	number = atoi(n);
 	mon.args[1] = NULL;
-	add_dnodeint_end(stack, number);
+	if (mon.stack_queue == 1)
+		add_dnodeint_end(stack, number);
+	else
+		add_node_beg(stack, number);
 }
 /**
  *pall - prints all the values of the stack from the top

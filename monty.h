@@ -47,6 +47,7 @@ typedef struct instruction_s
  *@line_number:monty file line number
  *@line:return value of getline
  *@file:pointer to filestream
+ *@stack_queue:makes the entity to correspond to a stack or a queue
  */
 typedef struct monty
 {
@@ -56,7 +57,8 @@ typedef struct monty
 	stack_t *stack;
 	unsigned int line_number;
 	int line;
-	FILE *file;
+        FILE *file;
+	unsigned int stack_queue;
 } monty_details;
 monty_details mon;
 /*parser*/
@@ -84,6 +86,8 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
+void stack(stack_t **stack, unsigned int line_number);
+void queue(stack_t **stack, unsigned int line_number);
 /*ops function*/
 void ops(void);
 #endif/*MONTY_H*/

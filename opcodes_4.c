@@ -11,12 +11,9 @@ void rotl(stack_t **stack, unsigned int ln)
 	stack_t *tmp = *stack;
 	int rotl_n;
 
+	(void)ln;
 	if (tmp == NULL)
-	{
-		dprintf(STDERR_FILENO, "L%d: cant rotl\n", ln);
-		freer();
-		exit(0);
-	}
+	  return;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
 	rotl_n = tmp->n;
@@ -39,12 +36,9 @@ void rotr(stack_t **stack, unsigned int ln)
 	stack_t *tmp = *stack;
 	int rotr_n;
 
+	(void)ln;
 	if (tmp == NULL)
-	{
-		dprintf(STDERR_FILENO, "L%d: cant rotl\n", ln);
-		freer();
-		exit(0);
-	}
+	  return;
 	rotr_n = tmp->n;
 	while (tmp->next != NULL)
 	{
@@ -52,4 +46,30 @@ void rotr(stack_t **stack, unsigned int ln)
 		tmp = tmp->next;
 	}
 	tmp->n = rotr_n;
+}
+/**
+ *stack - changes stack_queue int to 1 so that a stack is implemente
+ *@stack:pointer to stack
+ *@ln:line number
+ *Return:void
+ */
+void stack(stack_t **stack, unsigned int ln)
+{
+	(void)ln;
+	(void)stack;
+
+	mon.stack_queue = 1;
+}
+/**
+ *queue - changes stack_queue int to 0 so that we push to a queue
+ *@stack:pointer to stack
+ *@ln:line number
+ *Return:void
+ */
+void queue(stack_t **stack, unsigned int ln)
+{
+	(void)stack;
+	(void)ln;
+
+	mon.stack_queue = 0;
 }

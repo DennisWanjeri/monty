@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
 {
 	/*initialization of mon variables*/
 	mon.line_number = 1;
+	mon.stack_queue = 1;
 	mon.file = NULL;
 	mon.args = malloc(sizeof(char *) * AGSIZE);
 	if (!mon.args)
