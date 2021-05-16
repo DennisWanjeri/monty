@@ -71,7 +71,7 @@ void pstr(stack_t **stack, unsigned int ln)
 	if (tmp == NULL)
 	{
 		printf("\n");
-	  	return;
+		return;
 	}
 	while (tmp->next != NULL)
 		tmp = tmp->next;
