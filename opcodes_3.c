@@ -68,7 +68,10 @@ void pstr(stack_t **stack, unsigned int ln)
 	stack_t *tmp = *stack;
 
 	if (tmp == NULL)
-	  return;
+	{
+		printf("\n");
+	  	return;
+	}
 	(void)ln;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
