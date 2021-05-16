@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
-* rotl - function that rotates a stack by one.
+* rotl - function that rotates a stack by one to the top.
 * @stack: first parameter
 *@ln: second parameter
 *
@@ -13,7 +13,7 @@ void rotl(stack_t **stack, unsigned int ln)
 
 	(void)ln;
 	if (tmp == NULL)
-	  return;
+		return;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
 	rotl_n = tmp->n;
@@ -28,6 +28,7 @@ void rotl(stack_t **stack, unsigned int ln)
 /**
   * rotr - opcode that rotates a stack to the bottom
   * @stack: 1st paramenter
+  * @ln: 2nd parameter
   *
   * Return: void
   */
@@ -38,7 +39,7 @@ void rotr(stack_t **stack, unsigned int ln)
 
 	(void)ln;
 	if (tmp == NULL)
-	  return;
+		return;
 	rotr_n = tmp->n;
 	while (tmp->next != NULL)
 	{
