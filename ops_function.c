@@ -20,6 +20,7 @@ void ops(void)
 		{"pchar", pchar},
 		{"pstr", pstr},
 		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL}
 	};
 	while (op[op_i].opcode != NULL)
