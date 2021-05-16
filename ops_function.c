@@ -19,6 +19,7 @@ void ops(void)
 		{"mod", mod},
 		{"pchar", pchar},
 		{"pstr", pstr},
+		{"rotl", rotl},
 		{NULL, NULL}
 	};
 	while (op[op_i].opcode != NULL)
